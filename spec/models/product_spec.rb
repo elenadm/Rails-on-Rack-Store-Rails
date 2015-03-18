@@ -1,6 +1,6 @@
-require 'rails_helper'
+require_relative '../../spec/spec_helper'
 
-RSpec.describe Product, :type => :model do
+describe Product, :type => :model do
 
   let(:product1_test) { Product.new(name: 'blouse', description: 'Bright top', price: '10', image_url: 'blouse.jpg') }
 
