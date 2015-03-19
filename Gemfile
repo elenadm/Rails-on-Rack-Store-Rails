@@ -45,4 +45,5 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'rspec-collection_matchers'
 end
