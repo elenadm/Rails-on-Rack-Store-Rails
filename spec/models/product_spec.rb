@@ -2,7 +2,13 @@ require_relative '../../spec/spec_helper'
 
 describe Product do
 
-  let(:product1_test) { Product.new(name: 'blouse', description: 'Bright top', price: '10', image_url: 'blouse.jpg') }
+  let(:product1_test) { FactoryGirl.create(:product) }
+
+  it { expect have_many(:orders) }
+
+  it 'has a valid factory product' do
+    expect(product1_test).to be_valid
+  end
 
   it 'is not valid without a name' do
     product1_test.name = nil

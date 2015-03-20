@@ -3,7 +3,15 @@ require 'rails_helper'
 
 describe Order do
 
-  let(:order_test) { Order.new(buyer: 'Tom', address: 'Kiev 25', email: 'tom@ruby.com') }
+  let(:order_test) { FactoryGirl.create(:order) }
+  let(:product1_test) { FactoryGirl.create(:product) }
+  #let(:order_test) { FactoryGirl.create(:order_with_product, product: product1_test) }
+
+  it { expect have_many(:products) }
+
+  it 'has a valid factory order' do
+    expect(order_test).to be_valid
+  end
 
   it 'is not valid without a buyer' do
     order_test.buyer = nil
