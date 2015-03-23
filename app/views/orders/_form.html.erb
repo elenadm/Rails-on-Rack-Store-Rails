@@ -1,0 +1,17 @@
+<%= form_for(@order) do |f| %>
+    <div>
+      <%= f.label :buyer %><br>
+      <%= f.text_field :buyer, size: 40 %>
+    </div>
+    <div>
+      <%= f.label :address, t('.address_html') %><br>
+      <%= f.text_area :address, rows: 3, cols: 40 %>
+    </div>
+    <div>
+      <%= f.label :email %><br>
+      <%= f.email_field :email, size: 40 %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
