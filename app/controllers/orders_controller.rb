@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
-  include CurrentCart
-  before_action :set_cart, only: [:new, :create]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :find_product, only: [:create]
+  before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
     @orders = Order.all
@@ -12,9 +11,7 @@ class OrdersController < ApplicationController
 
 
   def new
-    if @order.empty?
-      @order = Order.new
-    end
+    @order = Order.new
   end
 
 
