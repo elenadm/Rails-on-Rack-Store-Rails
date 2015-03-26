@@ -3,9 +3,8 @@ require 'rails_helper'
 
 describe Order do
 
-  let(:order_test) { FactoryGirl.create(:order) }
   let(:product1_test) { FactoryGirl.create(:product) }
-  #let(:order_test) { FactoryGirl.create(:order_with_product, product: product1_test) }
+  let(:order_test) { FactoryGirl.create(:order_with_product, product: product1_test) }
 
   it { expect have_many(:products) }
 

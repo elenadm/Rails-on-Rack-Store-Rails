@@ -12,13 +12,13 @@ FactoryGirl.define do
     image_url 'blouse.jpg'
   end
 
-  # factory :order_with_product, parent: :order do
-  #   ignore do
-  #     product { FactoryGirl.create(:product) }
-  #   end
-  #
-  #   after_create do |order, evaluator|
-  #     order.products << evaluator.product
-  #   end
-  # end
+  factory :order_with_product, parent: :order do
+    ignore do
+      product { FactoryGirl.create(:product) }
+    end
+
+    after(:create) do |order, evaluator|
+      order.products << evaluator.product
+    end
+  end
 end

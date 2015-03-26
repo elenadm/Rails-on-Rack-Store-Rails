@@ -11,5 +11,4 @@ class Order < ActiveRecord::Base
 
   validates :buyer, :address, :email, presence: true
   validates :email, presence: true, email: true
-  #validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create, message: 'is not an email'}
 end

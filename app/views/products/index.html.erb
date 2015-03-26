@@ -9,7 +9,7 @@
           <dl>
             <dt><%= product.name %></dt>
             <dd><%= product.description %></dd>
-            <dd><%= product.price %></dd>
+            <dd><%= number_to_currency(product.price) %><dd>
           </dl>
         </td>
         <td class="list_actions">

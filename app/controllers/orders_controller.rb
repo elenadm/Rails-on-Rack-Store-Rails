@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :find_product, only: [:create]
   before_action :find_order, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -47,7 +46,7 @@ class OrdersController < ApplicationController
   private
 
   def find_order
-    Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def order_params
