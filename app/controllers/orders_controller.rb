@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.products << session[:cart]
     @order.save
     render action: 'show'
   end
@@ -37,6 +38,7 @@ class OrdersController < ApplicationController
 
   def destroy
     @order.destroy
+    session[:cart] = nil
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
