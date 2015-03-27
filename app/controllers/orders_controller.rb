@@ -19,9 +19,11 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.products << session[:cart]
+    session[:cart].each do |el|
+      @order.products << Product.find(el)
+    end
     @order.save
-    render action: 'show'
+    redirect_to orders_path
   end
 
   def update
