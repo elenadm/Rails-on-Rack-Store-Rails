@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :admin do
+    
+  end
+
   factory :order do
     buyer 'Tom'
     address 'Kiev 25'
