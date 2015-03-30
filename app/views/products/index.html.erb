@@ -1,5 +1,6 @@
 <h1>Assortment of products</h1>
 <table>
+  <%= will_paginate @products %>
   <% @products.each do |product| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
         <td>
@@ -9,7 +10,7 @@
           <dl>
             <dt><%= product.name %></dt>
             <dd><%= product.description %></dd>
-            <dd><%= number_to_currency(product.price) %><dd>
+            <dd><%= number_to_currency(product.price) %></dd>
           </dl>
         </td>
         <td class="list_actions">
@@ -23,4 +24,6 @@
 <br/>
 
 <%= link_to 'Place an order', new_order_path %><br/>
-<%= link_to 'Back to orders', orders_path %>
+<% if admin_signed_in? %>
+    <%= link_to 'Back to orders', orders_path %>
+<% end %>

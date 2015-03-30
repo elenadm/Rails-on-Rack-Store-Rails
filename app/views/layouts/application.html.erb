@@ -2,11 +2,20 @@
 <html>
 <head>
   <title>StoreRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
+<p class="notice"><%= notice %></p>
+<div style="float:right; margin-right: 10px;">
+  <% if admin_signed_in? %>
+      Welcome, <%= current_admin.email %>
+      <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
+  <% else %>
+      <%= link_to "Sign in", new_admin_session_path %>
+  <% end %>
+</div>
 
 <%= yield %>
 
