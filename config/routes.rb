@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'products#index'
   resources :products, only: [:index, :show]
-  resources :orders
+  resources :orders, except: [:edit, :update]
   post 'products/cart_session/:id' => 'products#cart_session', :as => 'products_cart'
 
   # The priority is based upon order of creation: first created -> highest priority.

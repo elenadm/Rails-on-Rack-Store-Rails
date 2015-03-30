@@ -1,0 +1,24 @@
+<p>
+  <strong>Name buyer:</strong>
+  <%= @order.buyer %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>Orders:</strong>
+  <% @order.products.each do |product| %>
+      <%= product.name %>
+  <% end %>
+</p>
+
+<%= link_to 'Back to main', products_path %><br/>
+<%= link_to 'Back to orders', orders_path %>

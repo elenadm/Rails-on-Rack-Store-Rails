@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :find_order, only: [:show, :edit, :update, :destroy]
+  before_action :find_order, only: [:show, :destroy]
 
   def index
     @orders = Order.all
@@ -13,27 +13,16 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-
-  def edit
-  end
-
   def create
     @order = Order.new(order_params)
     session[:cart].each do |el|
       @order.products << Product.find(el)
     end
-    @order.save
-    redirect_to orders_path
-  end
-
-  def update
     respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order }
+      if @order.save
+        format.html { redirect_to products_path, notice: 'Order was successfully created.' }
       else
-        format.html { render :edit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+        format.html { redirect_to products_path, notice: 'Sorry, your order is not issued. Please try again.' }
       end
     end
   end
