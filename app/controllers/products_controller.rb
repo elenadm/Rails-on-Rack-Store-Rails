@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show]
 
   def index
-    @products = Product.all
+    @products = Product.order(:name).page params[:page]
   end
 
   def show
