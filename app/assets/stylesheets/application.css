@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.authentication {
+    float: right;
+    margin-right: 10px;
+}

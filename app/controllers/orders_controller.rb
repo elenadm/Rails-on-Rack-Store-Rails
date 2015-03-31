@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :require_login, only: [:index, :destroy]
   before_action :find_order, only: [:show, :destroy]
 
   def index
@@ -7,7 +8,6 @@ class OrdersController < ApplicationController
 
   def show
   end
-
 
   def new
     @order = Order.new
