@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  mount_uploader :image, ProductImageUploader
+
   paginates_per 2
   has_many :order_products
   has_many :orders, :through => :order_products

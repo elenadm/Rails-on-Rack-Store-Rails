@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :edit, :update]
   resources :orders, except: [:edit, :update]
   post 'products/cart_session/:id' => 'products#cart_session', :as => 'products_cart'
 
