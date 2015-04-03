@@ -8,6 +8,10 @@ describe Order do
 
   it { expect have_many(:products) }
 
+  it 'association of order and product' do
+    expect(order_test.products).to eq (product1_test)
+  end
+
   it 'has a valid factory order' do
     expect(order_test).to be_valid
   end
