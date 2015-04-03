@@ -9,7 +9,6 @@ FactoryGirl.define do
     name 'blouse'
     description 'Bright top'
     price '10'
-    image_url 'blouse.jpg'
   end
 
   factory :order_with_product, parent: :order do
